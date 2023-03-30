@@ -1,1 +1,9 @@
-# vk_education_1_sem_Web
+Репозиторий курса "Web-технологии" первого семестра ВК Образования
+
+Автор: Сулайманов Роман Богданович, Web-12
+
+Связь со мной:
+
+https://t.me/Lucker285 (@Lucker285)
+
+https://vk.com/pomawka_8eka (@pomawka_8eka)
