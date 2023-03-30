@@ -1,0 +1,145 @@
+main > .container {
+    padding: 60px 15px 0;
+}
+
+.main-page-avatar > img {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.main-page-text-name {
+    font-size: 125%;
+    color: white;
+}
+
+.main-page-text {
+    font-size: 110%;
+    color: white;
+}
+
+.new-questions-text {
+    font-size: 200%;
+    margin-top: 3rem;
+}
+
+.question {
+    height: 200px;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.question-avatar {
+    height: 130px;
+    width: 130px;
+}
+
+.question-avatar > img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.question-text {
+    margin-bottom: 5%;
+}
+
+.popular-tags {
+    margin-bottom: 15%;
+}
+
+.popular-tags-text {
+    font-size: 150%;
+    text-align: center;
+}
+
+.best-members {
+    margin-bottom: 15%;
+}
+
+.best-members-text {
+    font-size: 150%;
+}
+
+.question-to-answer {
+    height: 300px;
+    padding: 10px;
+}
+
+.question-to-answer-text {
+    margin-bottom: 5%;
+}
+
+.question-to-answer-avatar > img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.form-control-custom {
+    padding-bottom: 12%;
+    border: 2px solid black;
+    height: 150px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.form-control-ask-question-title {
+    padding: 4px;
+    border: 2px solid black;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.form-control-ask-question-text {
+    height: 300px;
+    padding: 4px;
+    padding-bottom: 270px;
+    border: 2px solid black;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.form-control-ask-question-tags {
+    padding: 4px;
+    border: 2px solid black;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.line {
+  border: 1px solid black;
+  margin: 20px 0;
+}
+
+
+.like-btn, .dislike-btn {
+    padding-left: 15px;
+}
+
+.likes {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.ask-question-text {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.wrong-password-text {
+    margin-top: 20px;
+    color: red;
+}
+
+.user-page-avatar > img {
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
