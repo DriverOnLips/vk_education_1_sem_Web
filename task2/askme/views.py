@@ -3,11 +3,16 @@ from . import models
 from django.core.paginator import Paginator
 
 
+def paginate(objects_list, request, per_page=5):
+    paginator = Paginator(objects_list, per_page)
+    page_number = request.GET.get('page', 1)
+    page_obj = paginator.get_page(page_number)
+    return page_obj
+
+
 def index(request):
     question_list = models.QUESTIONS
-    paginator = Paginator(question_list, 5)
-    page = request.GET.get('page')
-    questions = paginator.get_page(page)
+    questions = paginate(question_list, request, 5)
     context = {
         'questions': questions,
         'navbar_templates': ['inc/navbar_registered.html', 'inc/navbar_viewed.html'],
@@ -20,9 +25,7 @@ def question(request, question_id):
         question_id = len(models.QUESTIONS)
     question = models.QUESTIONS[int(question_id) - 1]
     answer_list = [a for a in models.ANSWERS if a['title'] == question['title']]
-    paginator = Paginator(answer_list, 3)
-    page = request.GET.get('page')
-    answers = paginator.get_page(page)
+    answers = paginate(answer_list, request, 3)
     context = {'question': question,
                'answers': answers,
                'navbar_templates': ['inc/navbar_registered.html', 'inc/navbar_viewed.html'],
@@ -48,9 +51,7 @@ def tag(request, tag_name):
     question_list = [q for q in models.QUESTIONS if tag_name in q['tags']]
     if not question_list:
         question_list = [q for q in models.QUESTIONS if 'machine learning' in q['tags']]
-    paginator = Paginator(question_list, 5)
-    page = request.GET.get('page')
-    questions = paginator.get_page(page)
+    questions = paginate(question_list, request, 5)
     context = {
         'questions': questions,
         'navbar_templates': ['inc/navbar_registered.html', 'inc/navbar_viewed.html'],
@@ -76,9 +77,7 @@ def user(request):
 
 def hot(request):
     question_list = models.QUESTIONS
-    paginator = Paginator(question_list, 5)
-    page = request.GET.get('page')
-    questions = paginator.get_page(page)
+    questions = paginate(question_list, request, 5)
     context = {'questions': questions,
                'navbar_templates': ['inc/navbar_registered.html', 'inc/navbar_viewed.html'],
                }
