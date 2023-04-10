@@ -1,0 +1,73 @@
+{% extends "inc/base.html" %}
+{% load static %}
+
+{% block navbar_templates %}
+    {% include navbar_templates|random %}
+{% endblock %}
+
+{% block content %}
+  <div class="question-to-answer">
+    <div class="row">
+      <div class="col-3">
+        <div class="question-to-answer-avatar">
+          <img src=" {% static "/img/avatar5.png" %} " alt="avatar">
+        </div>
+        <div class="row">
+          <div class="rating" style="margin-left: 30%; margin-top: 5%">
+            <button class="btn btn-outline-success like-btn"><i class="bi bi-hand-thumbs-up"></i></button>
+            <span class="likes">5</span>
+            <button class="btn btn-outline-danger dislike-btn"><i class="bi bi-hand-thumbs-down"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="col-9">
+        <h2>{{ question.title }}</h2>
+        <div class="question-to-answer-text">{{ question.text }}</div>
+          <div>
+            Tags:
+            {% for tag in question.tags %}
+              <a href="{% url "tag" tag %}">{{ tag }}</a>
+            {% endfor %}
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="line"></div>
+
+  {% for answer in answers %}
+    {%  include "inc/answer_item.html" %}
+  {% endfor %}
+
+  <div class="line"></div>
+  <div class="form-group">
+    <input type="email" class="form-control form-control-custom" id="exampleFormControlInput1" placeholder="Enter your answer here">
+  </div>
+  <button class="btn btn-outline-secondary" type="submit" style="margin-bottom: 20px;" id="send-answer-button">
+    <a href="/" class="a-answer">Answer</a>
+  </button>
+
+  {% if answers.has_other_pages %}
+    <ul class="pagination">
+      {% if answers.has_previous %}
+        <li class="page-item"><a class="page-link" href="?page={{ answers.previous_page_number }}">Previous</a></li>
+      {% else %}
+        <li class="page-item disabled"><span class="page-link">Previous</span></li>
+      {% endif %}
+
+      {% for i in answers.paginator.page_range %}
+        {% if answers.number == i %}
+          <li class="page-item active"><span class="page-link">{{ i }}</span></li>
+        {% else %}
+          <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+        {% endif %}
+      {% endfor %}
+
+      {% if answers.has_next %}
+        <li class="page-item"><a class="page-link" href="?page={{ answers.next_page_number }}">Next</a></li>
+      {% else %}
+        <li class="page-item disabled"><span class="page-link">Next</span></li>
+      {% endif %}
+    </ul>
+  {% endif %}
+
+{% endblock content %}

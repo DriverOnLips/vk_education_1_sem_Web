@@ -1,0 +1,34 @@
+{% load static %}
+
+<div class="question">
+  <div class="row">
+    <div class="col-3">
+      <div class="question-avatar">
+        <img src="{% static "/img/avatar1.png" %}" alt="avatar">
+      </div>
+      <div class="row">
+        <div class="rating" style="margin-left: 10%; margin-top: 3%">
+          <button class="btn btn-outline-success like-btn"><i class="bi bi-hand-thumbs-up"></i></button>
+          <span class="likes">{{ question.id }}</span>
+          <button class="btn btn-outline-danger dislike-btn"><i class="bi bi-hand-thumbs-down"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="col-9">
+      <h2><a href="{% url "question" question.id %}"> {{ question.title }} </a></h2>
+      <div class="question-text"> {{ question.text }} </div>
+      <div class="row ">
+        <div class="col-4">
+          <a href="{% url "question" question.id %}">Answers</a>
+        </div>
+        <div class="col-8">
+          Tags:
+          {% for tag in question.tags %}
+            <a href="{% url "tag" tag %}">{{ tag }}</a>
+          {% endfor %}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+{% extends "inc/base.html" %}
+
+{% block navbar_templates %}
+    {% include navbar_templates|random %}
+{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-4">
+      <h1>Log In</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="wrong-password-text">Sorry, wrong password!</div>
+  </div>
+
+  <div class="row">
+    <div class="col-9">
+      <div class="row">
+        <div class="col-2">
+          <div class="ask-question-text" style="text-align: left">
+              Login
+          </div>
+        </div>
+          <div class="col-4">
+            <div class="form-group">
+              <input type="email" class="form-control form-control-ask-question-title" placeholder="Write your login here">
+            </div>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-2">
+          <div class="ask-question-text" style="text-align: left">
+            Password
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="form-group">
+            <input type="password" class="form-control form-control-ask-question-title" id="password" placeholder="Enter password">
+          </div>
+          <div class="row">
+            <button class="btn btn-outline-primary col-6"  type="submit" style="margin-bottom: 20px; margin-left: 10px" id="login-button">
+              <a href="/" class="a-login">Log in!</a>
+            </button>
+          </div>
+          <a href="/signup">Create new account</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}
+
+
+
+

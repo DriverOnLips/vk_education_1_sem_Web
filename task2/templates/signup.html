@@ -1,0 +1,99 @@
+{% extends "inc/base.html" %}
+
+{% block navbar_templates %}
+    {% include navbar_templates|first %}
+{% endblock %}
+
+
+{% block content %}
+  <div class="row">
+    <div class="col-4">
+      <h1>Registration</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="wrong-password-text">Sorry, this email is already registred!</div>
+  </div>
+
+  <div class="row">
+    <div class="col-9">
+      <div class="row">
+        <div class="col-3">
+          <div class="ask-question-text" style="text-align: left">
+              Login
+          </div>
+        </div>
+          <div class="col-4">
+            <div class="form-group">
+              <input type="email" class="form-control form-control-ask-question-title" placeholder="Write your login here">
+            </div>
+          </div>
+      </div>
+        <div class="row">
+        <div class="col-3">
+          <div class="ask-question-text" style="text-align: left">
+              Email
+          </div>
+        </div>
+          <div class="col-4">
+            <div class="form-group">
+              <input type="email" class="form-control form-control-ask-question-title" placeholder="Write your email here">
+            </div>
+          </div>
+      </div>
+        <div class="row">
+        <div class="col-3">
+          <div class="ask-question-text" style="text-align: left">
+              Name
+          </div>
+        </div>
+          <div class="col-4">
+            <div class="form-group">
+              <input type="email" class="form-control form-control-ask-question-title" placeholder="Write your name here">
+            </div>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-3">
+          <div class="ask-question-text" style="text-align: left">
+            Password
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="form-group">
+            <input type="password" class="form-control form-control-ask-question-title" id="password" placeholder="Enter password">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">
+          <div class="ask-question-text" style="text-align: left">
+            Repeat password
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="form-group">
+            <input type="password" class="form-control form-control-ask-question-title" id="repeat-password" placeholder="Repeat password">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">
+          <div class="ask-question-text" style="text-align: left">
+            Upload avatar
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="form-group" style="margin-top: 10px; margin-bottom: 20px">
+            <input type="file" class="form-control-file" id="photo">
+          </div>
+          <div class="row">
+            <button class="btn btn-outline-primary col-6" type="submit" style="margin-bottom: 20px; margin-left: 10px" id="register-button">
+              <a href="/" class="a-register">Register!</a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
