@@ -24,7 +24,7 @@
         <div class="question-title">{{ question.title }}</div>
         <div class="question-to-answer-text">{{ question.text }}</div>
           Tags:
-          {% for tag in question.tags %}
+          {% for tag in question.tag.all %}
             <a href="{% url "tag" tag %}">{{ tag }}</a>
           {% endfor %}
       </div>

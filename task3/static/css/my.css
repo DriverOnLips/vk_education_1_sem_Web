@@ -240,3 +240,8 @@ main > .container {
     cursor: none;
     color: #7786e7;
 }
+
+.my-navbar {
+    padding-top: 1%;
+    padding-bottom: 1%;
+}

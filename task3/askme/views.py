@@ -78,7 +78,9 @@ def user(request):
 
 
 def hot(request):
-    question_list = models.QUESTIONS
+    question_list = models.Question.objects.prefetch_related(
+        Prefetch('tag', queryset=models.Tag.objects.all())
+    ).all()
     questions = paginate(question_list, request, 5)
     context = {'questions': questions,
                'navbar_templates': ['inc/navbar_registered.html', 'inc/navbar_viewed.html'],
