@@ -1,0 +1,90 @@
+{% load static %}
+
+<!doctype html>
+
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Askme_driver_on_lips</title>
+
+    <link href="{% static "css/bootstrap.css" %}" rel="stylesheet" crossorigin="anonymous">
+    <link href="{% static "css/my.css" %}" rel="stylesheet">
+  </head>
+  <body class="d-flex flex-column h-100">
+
+    <!-- Begin page content -->
+    <main class="flex-shrink-0">
+      <div class="container">
+        <header>
+          {% include navbar_templates|random %}
+        </header>
+        <div class="row">
+          <div class="col-8">
+            {% block content %}{% endblock content %}
+          </div>
+          <div class="col-4" style="padding-left: 5%">
+            <div class="popular-tags">
+              <div class="main-text" >Popular Tags</div>
+              <div class="row">
+                <div class="col-3">
+                  <div class="popular-tags-text">
+                    <a href="{% url "tag" "SQL" %}" style="color: black">SQL</a>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="popular-tags-text">
+                    <a href="{% url "tag" "HTML" %}" style="color: red">HTML</a>
+                  </div>
+                </div>
+                <div class="col-5">
+                  <div class="popular-tags-text">
+                    <a href="{% url "tag" "database" %}">Database</a>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <div class="popular-tags-text">
+                    <a href="{% url "tag" "AI" %}" style="color: green;">AI</a>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="popular-tags-text">
+                    <a href="{% url "tag" "JavaScript" %}" style="color: gold">JavaScript</a>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="popular-tags-text">
+                  <a href="{% url "tag" "machine learning" %}" style="color: black;">Machine learning</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="best-members">
+              <div class="main-text">Best Members</div>
+              <div class="row">
+                <div class="best-members-text">
+                  <a href="{% url "index"%}">Starlix</a>
+                </div>
+              </div>
+              <div class="row">
+                <div class="best-members-text">
+                  <a href="{% url "index"%}">Romanlock</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer mt-3 py-3 bg-body-tertiary">
+      <div class="container">
+        <span class="text-body-secondary">Designed by driver_on_lips</span>
+      </div>
+    </footer>
+    <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  </body>
+</html>
