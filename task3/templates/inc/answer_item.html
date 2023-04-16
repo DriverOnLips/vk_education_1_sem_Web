@@ -4,12 +4,12 @@
   <div class="row">
     <div class="col-3">
       <div class="answer-avatar">
-        <img src="{% static "/img/avatar4.png" %}" alt="avatar">
+        <img src="{{ answer.author.photo.url }}" alt="avatar">
       </div>
       <div class="row">
         <div class="rating">
           <button class="btn like-btn"><img src="{% static 'img/like.png' %}" class="like-image"></button>
-          <span class="likes">{{ question.id }}</span>
+          <span class="likes">{{ answer.author.rating }}</span>
           <button class="btn dislike-btn"><img src="{% static 'img/dislike.png' %}" class="dislike-image"></button>
         </div>
       </div>

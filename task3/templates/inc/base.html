@@ -27,52 +27,24 @@
             <div class="popular-tags">
               <div class="main-text" >Popular Tags</div>
               <div class="row">
-                <div class="col-3">
-                  <div class="popular-tags-text">
-                    <a href="{% url "tag" "SQL" %}" style="color: black">SQL</a>
+                {% for tag in popular_tags %}
+                  <div class="col-auto">
+                    <div class="popular-tags-text">
+                      <a href="{% url 'tag' tag.name %}">{{ tag.name }}</a>
+                    </div>
                   </div>
-                </div>
-                <div class="col-4">
-                  <div class="popular-tags-text">
-                    <a href="{% url "tag" "HTML" %}" style="color: red">HTML</a>
-                  </div>
-                </div>
-                <div class="col-5">
-                  <div class="popular-tags-text">
-                    <a href="{% url "tag" "database" %}">Database</a>
-                  </div>
-                </div>
+                {% endfor %}
               </div>
-              <div class="row">
-                <div class="col-6">
-                  <div class="popular-tags-text">
-                    <a href="{% url "tag" "AI" %}" style="color: green;">AI</a>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <div class="popular-tags-text">
-                    <a href="{% url "tag" "JavaScript" %}" style="color: gold">JavaScript</a>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="popular-tags-text">
-                  <a href="{% url "tag" "machine learning" %}" style="color: black;">Machine learning</a>
-                </div>
-              </div>
-            </div>
 
-            <div class="best-members">
-              <div class="main-text">Best Members</div>
-              <div class="row">
-                <div class="best-members-text">
-                  <a href="{% url "index"%}">Starlix</a>
-                </div>
-              </div>
-              <div class="row">
-                <div class="best-members-text">
-                  <a href="{% url "index"%}">Romanlock</a>
-                </div>
+              <div class="best-members">
+                <div class="main-text">Best Members</div>
+                {% for member in best_members %}
+                  <div class="row">
+                    <div class="best-members-text">
+                      <a href="{% url "index"%}">{{ member.name }}</a>
+                    </div>
+                  </div>
+                {% endfor %}
               </div>
             </div>
           </div>
