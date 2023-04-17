@@ -77,10 +77,15 @@ WSGI_APPLICATION = 'askme_py_files.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'askme_db',
+        'USER': 'postgres',
+        'PASSWORD': 'qwerty',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
+
 
 
 # Password validation

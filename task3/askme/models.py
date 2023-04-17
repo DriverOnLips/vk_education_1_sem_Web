@@ -66,18 +66,20 @@ class AnswerManager(models.Manager):
 class Answer(models.Model):
     id = models.AutoField(primary_key=True, verbose_name='ID')
     to_question = models.ForeignKey('Question', on_delete=models.CASCADE,
-                                    related_name='answer_to_question', verbose_name='Вопрос')
+                                    related_name='answer_to_question',
+                                    verbose_name='answer2question')
     author = models.ForeignKey('User', on_delete=models.CASCADE, related_name='answer_author',
-                               verbose_name='Автор')
-    text = models.CharField(max_length=3000, verbose_name='Текст ответа')
+                               verbose_name='answer_author')
+    text = models.CharField(max_length=3000, verbose_name='answer_text')
     STATUS_CHOICES = [
         ('r', 'right'),
         ('u', 'unknown')
     ]
-    status = models.CharField(max_length=1, choices=STATUS_CHOICES, verbose_name='Статус', default=STATUS_CHOICES[-1])
+    status = models.CharField(max_length=1, choices=STATUS_CHOICES, verbose_name='answer_status',
+                              default=STATUS_CHOICES[-1])
 
     class Meta:
-        db_table = 'Answers'
+        db_table = 'answers'
 
     objects = AnswerManager()
 
@@ -87,13 +89,14 @@ class Answer(models.Model):
 
 class Question(models.Model):
     id = models.AutoField(primary_key=True, verbose_name='ID')
-    title = models.CharField(max_length=255, verbose_name='Заголовок')
-    text = models.CharField(max_length=3000, verbose_name='Текст вопроса')
-    author = models.ForeignKey('User', on_delete=models.CASCADE, related_name='questions', verbose_name='Автор')
-    tag = models.ManyToManyField('Tag', related_name='questions', verbose_name='Теги')
+    title = models.CharField(max_length=255, verbose_name='question_title')
+    text = models.CharField(max_length=3000, verbose_name='question_text')
+    author = models.ForeignKey('User', on_delete=models.CASCADE,
+                               related_name='author_of_question', verbose_name='question_author')
+    tag = models.ManyToManyField('Tag', related_name='questions', verbose_name='question_tag')
 
     class Meta:
-        db_table = 'Questions'
+        db_table = 'questions'
 
     objects = QuestionManager()
 
@@ -106,20 +109,20 @@ class Question(models.Model):
 
 class User(AbstractBaseUser):
     id = models.AutoField(primary_key=True, verbose_name='ID')
-    name = models.CharField(max_length=100, blank=True, verbose_name='Имя')
-    email = models.EmailField(unique=True, verbose_name='Email')
-    rating = models.IntegerField(verbose_name='Рейтинг')
+    name = models.CharField(max_length=100, blank=True, verbose_name='user_name')
+    email = models.EmailField(unique=True, verbose_name='email')
+    rating = models.IntegerField(verbose_name='rating')
     photo = models.ImageField(upload_to='./static/img/user_avatars', blank=True, null=True,
-                              verbose_name='Фото пользователя')
-    is_active = models.BooleanField(default=True, verbose_name='Активен')
-    is_staff = models.BooleanField(default=False, verbose_name='Сотрудник')
-    date_joined = models.DateTimeField(auto_now_add=True, verbose_name='Дата регистрации')
+                              verbose_name='user_photo')
+    is_active = models.BooleanField(default=True, verbose_name='active')
+    is_staff = models.BooleanField(default=False, verbose_name='staff')
+    date_joined = models.DateTimeField(auto_now_add=True, verbose_name='registration_date')
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['name']
 
     class Meta:
-        db_table = 'Users'
+        db_table = 'users'
 
     def __str__(self):
         return f'{self.id} {self.name}'
@@ -129,10 +132,10 @@ class User(AbstractBaseUser):
 
 class Tag(models.Model):
     id = models.AutoField(primary_key=True, verbose_name='ID')
-    name = models.CharField(max_length=50, verbose_name='Название тега')
+    name = models.CharField(max_length=50, verbose_name='tag_name')
 
     class Meta:
-        db_table = 'Tags'
+        db_table = 'tags'
 
     objects = TagManager()
 
@@ -142,16 +145,18 @@ class Tag(models.Model):
 
 class Mark(models.Model):
     id = models.AutoField(primary_key=True, verbose_name='ID')
-    to_user = models.ForeignKey('User', on_delete=models.CASCADE, related_name='marks_received', verbose_name='Получатель')
-    from_user = models.ForeignKey('User', on_delete=models.CASCADE, related_name='marks_given', verbose_name='Отправитель')
+    to_user = models.ForeignKey('User', on_delete=models.CASCADE, related_name='marks_received',
+                                verbose_name='recipient')
+    from_user = models.ForeignKey('User', on_delete=models.CASCADE, related_name='marks_given',
+                                  verbose_name='sandler')
     STATUS_CHOICES = [
         ('l', 'like'),
         ('d', 'dislike'),
     ]
-    name = models.CharField(max_length=1, choices=STATUS_CHOICES, verbose_name='Оценка')
+    name = models.CharField(max_length=1, choices=STATUS_CHOICES, verbose_name='mark_type')
 
     class Meta:
-        db_table = 'Marks'
+        db_table = 'marks'
 
     objects = MarkManager()
 

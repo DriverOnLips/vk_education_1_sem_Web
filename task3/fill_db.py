@@ -16,9 +16,10 @@ nltk.download('gutenberg')
 corpus = nltk.corpus.gutenberg.words()
 words_dict = [word.lower() for word in corpus if len(word) >= 4]
 
+
 def reset_sequence(table_name):
-    with connections[DEFAULT_DB_ALIAS].cursor() as cursor:
-        cursor.execute(f'UPDATE sqlite_sequence SET seq = 0 WHERE name = "{table_name}";')
+    with connections['default'].cursor() as cursor:
+        cursor.execute(f"SELECT setval(pg_get_serial_sequence('{table_name}', 'id'), coalesce(max(id), 0) + 1, false) FROM {table_name};")
 
 
 def generate_users(num):

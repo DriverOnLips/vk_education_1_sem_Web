@@ -117,7 +117,7 @@ def hot(request):
         Prefetch('tag', queryset=models.Tag.objects.all()),
         Prefetch('answer_to_question'),
     ).annotate(num_answers=Count('answer_to_question')).all()
-    hot_questions = random.sample(list(question_list), k=50)
+    hot_questions = random.sample(list(question_list), k=25)
     best_members = random.sample(list(models.User.objects.all()), k=5)
     popular_tags = random.sample(list(models.Tag.objects.all()), k=12)
     context = {'questions': hot_questions,
