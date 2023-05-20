@@ -1,0 +1,54 @@
+{% extends "inc/base.html" %}
+{% load static %}
+{% load bootstrap5 %}
+
+{% block navbar_templates %}
+    {% include navbar_templates|random %}
+{% endblock %}
+
+{% block content %}
+  <div class="question-to-answer">
+    <div class="row">
+      <div class="col-3">
+        <div class="question-avatar">
+          <img src="{{ question.author.photo.url }}" alt="avatar">
+        </div>
+        <div class="row">
+          <div class="rating">
+            <button class="btn like-btn"><img src="{% static 'img/like.png' %}" class="like-image"></button>
+            <span class="likes">{{ question.rating }}</span>
+            <button class="btn dislike-btn"><img src="{% static 'img/dislike.png' %}" class="dislike-image"></button>
+          </div>
+        </div>
+      </div>
+      <div class="col-9">
+        <div class="question-title">{{ question.title }}</div>
+        <div class="question-to-answer-text">{{ question.text }}</div>
+          Tags:
+          {% for tag in question.tag.all %}
+            <a href="{% url "tag" tag %}">{{ tag }}</a>
+          {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="line"></div>
+
+  {% for answer in answers %}
+    {%  include "inc/answer_item.html" %}
+  {% endfor %}
+
+  <div class="line"></div>
+
+  {% if user.is_authenticated %}
+  <form method="post" action="{% url 'question' question_id=question.id %}">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <input type="hidden" name="author_id" value="{{ request.user.id }}">
+    <input type="hidden" name="to_question_id" value="{{ question.id }}">
+    <button type="submit" class="btn btn-primary">Ответить</button>
+  </form>
+  {% endif %}
+
+  {% include "inc/answers_pagination.html" %}
+
+{% endblock content %}

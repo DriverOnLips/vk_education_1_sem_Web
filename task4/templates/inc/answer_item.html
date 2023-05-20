@@ -1,0 +1,31 @@
+{% load static %}
+
+<div class="answer">
+  <div class="row">
+    <div class="col-3">
+      <div class="answer-avatar">
+        <img src="{{ answer.author.photo.url }}" alt="avatar">
+      </div>
+      <div class="row">
+        <div class="rating">
+          <button class="btn like-btn"><img src="{% static 'img/like.png' %}" class="like-image"></button>
+          <span class="likes">{{ answer.rating }}</span>
+          <button class="btn dislike-btn"><img src="{% static 'img/dislike.png' %}" class="dislike-image"></button>
+        </div>
+      </div>
+    </div>
+    <div class="col-9">
+      <div class="row">
+        <div class="answer-text col-12"> {{ answer.text }} </div>
+      </div>
+      <div class="row">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" {% if answer.status != 'u' %} checked="checked"{% endif %}>
+          <label class="form-check-label" for="defaultCheck1">
+            Correct
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

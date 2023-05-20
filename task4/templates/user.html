@@ -1,0 +1,52 @@
+{% extends "inc/base.html" %}
+
+{% block navbar_templates %}
+    {% include navbar_templates|random %}
+{% endblock %}
+
+{% block content %}
+  <div class="row main-text">Settings: Driver on lips</div>
+  <div class="row">
+    <div class="col-9">
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row mb-3">
+          <label for="login" class="col-sm-3 col-form-label">Login</label>
+          <div class="col-sm-9">
+            {{ form.email }}
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="email" class="col-sm-3 col-form-label">Email</label>
+          <div class="col-sm-9">
+            {{ form.email }}
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="name" class="col-sm-3 col-form-label">Name</label>
+          <div class="col-sm-9">
+            {{ form.name }}
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="avatar" class="col-sm-3 col-form-label">Upload avatar</label>
+          <div class="col-sm-5">
+            <div class="user-page-avatar">
+              <img src="{{ user.photo.url }}" alt="avatar">
+            </div>
+            {{ form.photo }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3"></div>
+          <div class="col-sm-9">
+            <button class="btn btn-outline-primary mt-3" type="submit" id="register-button">Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+
+{% endblock content %}

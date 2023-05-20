@@ -1,0 +1,247 @@
+main > .container {
+    padding: 60px 15px 0;
+}
+
+.main-page-avatar > img {
+    height: 50%;
+    width: 50%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.main-page-text-name {
+    font-size: 1.5vw;
+    color: white;
+}
+
+.main-page-text {
+    font-size: 1.5vw;
+    color: white;
+}
+
+/**/
+.new-questions-text {
+    font-size: 6vw;
+}
+
+.question {
+    height: auto;
+    border: 0.2vw solid black;
+    border-radius: 0.5vw;
+    padding: 1%;
+    margin-bottom: 1%;
+}
+
+/**/
+.answer {
+    height: auto;
+    border: 0.2vw solid black;
+    border-radius: 0.5vw;
+    padding: 1%;
+    margin-bottom: 1%;
+}
+
+/**/
+.answer-text {
+    height: auto;
+    padding: 1%;
+    margin-bottom: 2%;
+}
+
+.question-avatar {
+    display: block;
+    margin: 0 auto;
+    height: 75%;
+    width: 75%;
+}
+
+.question-avatar > img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.answer-avatar > img {
+    display: block;
+    margin: 0 auto;
+    height: 75%;
+    width: 75%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+/**/
+.rating {
+    text-align: center;
+    height: 100%;
+    width: 100%;
+}
+
+.like-image {
+    height: 1em;
+    width: 1em;
+    object-fit: cover;
+}
+
+.dislike-image  {
+    height: 1em;
+    width: 1em;
+    object-fit: cover;
+}
+
+.question-title {
+    text-align: left;
+    height: auto;
+    font-size: 1.5vw;
+}
+
+.question-text {
+    height: auto;
+}
+
+.question-tags {
+    height: auto;
+}
+
+.popular-tags {
+    margin-bottom: 5%;
+}
+
+.popular-tags-text {
+    font-size: 1.5vw;
+    text-align: center;
+}
+
+.best-members {
+    margin-bottom: 3%;
+}
+
+.best-members-text {
+
+    font-size: 1.5vw;
+}
+
+.question-to-answer {
+    height: auto;
+    padding: 1%;
+    margin-bottom: 1%;
+}
+
+.question-to-answer-text {
+    height: auto;
+    margin-bottom: 1%;
+}
+
+.question-to-answer-avatar > img {
+    height: 75%;
+    width: 75%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.form-control-custom {
+    padding-bottom: 8%;
+    border: 0.2vw solid black;
+    height: 10%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+
+.form-control-ask-question-title {
+    padding: 4px;
+    border: 2px solid black;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.form-control-ask-question-text {
+    height: 300px;
+    padding: 4px;
+    padding-bottom: 270px;
+    border: 2px solid black;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.form-control-ask-question-tags {
+    padding: 4px;
+    border: 2px solid black;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.line {
+  border: 1px solid black;
+  margin: 20px 0;
+}
+
+
+.like-btn, .dislike-btn {
+    height: 20%;
+    width: 20%;
+}
+
+.likes {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.ask-question-text {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.wrong-password-text {
+    margin-top: 20px;
+    color: red;
+}
+
+.user-page-avatar > img {
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.main-text {
+    font-size: 2.5vw;
+}
+
+.a-ask {
+    text-decoration: none;
+    color: #35f69e;
+    cursor: none;
+}
+
+.a-login {
+    text-decoration: none;
+    cursor: none;
+    color: #7786e7;
+}
+
+.a-answer {
+    margin-bottom: 10%;
+    text-decoration: none;
+    color: #1e1313;
+    cursor: none;
+}
+
+.a-register {
+    text-decoration: none;
+    cursor: none;
+    color: #7786e7;
+}
+
+.a-save {
+    text-decoration: none;
+    cursor: none;
+    color: #7786e7;
+}
+
+.my-navbar {
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
