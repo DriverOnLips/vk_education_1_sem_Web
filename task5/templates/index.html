@@ -1,0 +1,23 @@
+{% extends "inc/base.html" %}
+{% load static %}
+
+{% block navbar_templates %}
+    {% include navbar_templates|random %}
+{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-6 main-text">New questions</div>
+    <div class="col-6 main-text"><a href="{% url "hot"%}">Hot questions</a></div>
+  </div>
+
+  {% for question in questions %}
+    {%  include "inc/question_item.html" %}
+  {% endfor %}
+
+  {% include "inc/pagination.html" %}
+
+  <script src="{% static "js/jquery-3.7.0.min.js" %}"></script>
+  <script src="{% static "js/vote_question.js" %}"></script>
+
+{% endblock content %}
