@@ -1,0 +1,18 @@
+{% extends "inc/base.html" %}
+{% load static %}
+
+{% block navbar_templates %}
+    {% include navbar_templates|random %}
+{% endblock %}
+
+{% block content %}
+  <div class="row main-text">Tag: {{ tag_name }}</div>
+
+  {% for question in questions %}
+    {%  include "inc/question_item.html" %}
+  {% endfor %}
+
+  {% include "inc/pagination.html" %}
+
+{% endblock content %}
+

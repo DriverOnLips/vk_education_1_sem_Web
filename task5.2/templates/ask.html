@@ -1,0 +1,26 @@
+{% extends "inc/base.html" %}
+{% load bootstrap5 %}
+
+{% block navbar_templates %}
+    {% include navbar_templates|random %}
+{% endblock %}
+
+{% block content %}
+  <div class="row col-4 main-text">New question</div>
+
+  <div class="row">
+    <div class="col-9">
+
+      <form action="/ask/" novalidate method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <button type="submit" class="btn btn-primary">Ask!</button>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock content %}
+
+
+
