@@ -1,0 +1,63 @@
+{% load static %}
+
+<!doctype html>
+
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Askme_driver_on_lips</title>
+
+    <link href="{% static "css/bootstrap.css" %}" rel="stylesheet" crossorigin="anonymous">
+    <link href="{% static "css/my.css" %}" rel="stylesheet">
+  </head>
+  <body class="d-flex flex-column h-100">
+
+    <!-- Begin page content -->
+    <main class="flex-shrink-0">
+      <div class="container">
+        <header>
+          {% include navbar_template %}
+        </header>
+        <div class="row">
+          <div class="col-8">
+            {% block content %}{% endblock content %}
+          </div>
+          <div class="col-4" style="padding-left: 5%">
+            <div class="popular-tags">
+              <div class="main-text" >Popular Tags</div>
+              <div class="row">
+                {% for tag in popular_tags %}
+                  <div class="col-auto">
+                    <div class="popular-tags-text">
+                      <a href="{% url 'tag' tag.name %}">{{ tag.name }}</a>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+
+              <div class="best-members">
+                <div class="main-text">Best Members</div>
+                {% for member in best_members %}
+                  <div class="row">
+                    <div class="best-members-text">
+                      <a href="{% url "index"%}">{{ member.name }}</a>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer mt-3 py-3 bg-body-tertiary">
+      <div class="container">
+        <span class="text-body-secondary">Designed by driver_on_lips</span>
+      </div>
+    </footer>
+    <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+  </body>
+</html>

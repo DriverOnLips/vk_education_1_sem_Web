@@ -1,0 +1,17 @@
+{% extends "inc/base.html" %}
+{% load bootstrap5 %}
+
+{% block navbar_templates %}
+    {% include navbar_templates|random %}
+{% endblock %}
+
+{% block content %}
+  <div class="row main-text">Settings:</div>
+
+  <form action="/user/" novalidate method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
+
+{% endblock content %}

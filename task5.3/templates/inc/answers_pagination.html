@@ -1,0 +1,39 @@
+{% if answers.has_other_pages %}
+  <ul class="pagination">
+    {% if answers.has_previous %}
+      <li class="page-item"><a class="page-link" href="?page={{ answers.previous_page_number }}">Previous</a></li>
+    {% else %}
+      <li class="page-item disabled"><span class="page-link">Previous</span></li>
+    {% endif %}
+
+    {% if answers.number > 3 %}
+      <li class="page-item"><a class="page-link" href="?page=1">1</a></li>
+      {% if answers.number > 4 %}
+        <li class="page-item disabled"><span class="page-link">...</span></li>
+      {% endif %}
+    {% endif %}
+
+    {% for i in answers.paginator.page_range %}
+      {% if i >= answers.number|add:"-2" and i <= answers.number|add:"2" %}
+        {% if answers.number == i %}
+          <li class="page-item active"><span class="page-link">{{ i }}</span></li>
+        {% else %}
+          <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+
+    {% if answers.number < answers.paginator.num_pages|add:"-2" %}
+      {% if answers.number < answers.paginator.num_pages|add:"-3" %}
+        <li class="page-item disabled"><span class="page-link">...</span></li>
+      {% endif %}
+      <li class="page-item"><a class="page-link" href="?page={{ answers.paginator.num_pages }}">{{ answers.paginator.num_pages }}</a></li>
+    {% endif %}
+
+    {% if answers.has_next %}
+      <li class="page-item"><a class="page-link" href="?page={{ answers.next_page_number }}">Next</a></li>
+    {% else %}
+      <li class="page-item disabled"><span class="page-link">Next</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
