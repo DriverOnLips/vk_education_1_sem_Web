@@ -1,0 +1,24 @@
+{% extends "inc/base.html" %}
+{% load bootstrap5 %}
+
+{% block navbar_templates %}
+    {% include navbar_templates|random %}
+{% endblock %}
+
+{% block content %}
+  <div class="col-4 main-text">Log In</div>
+    {% if request.GET.continue %}
+      <form action="/login/?continue={{ request.GET.continue }}" novalidate method="post">
+    {% else %}
+      <form action="{% url 'login' %}" novalidate method="post">
+    {% endif %}
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+{% endblock content %}
+
+
+
+

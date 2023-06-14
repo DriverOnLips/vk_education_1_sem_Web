@@ -1,0 +1,18 @@
+{% extends "inc/base.html" %}
+{% load bootstrap5 %}
+
+{% block navbar_templates %}
+    {% include navbar_templates|first %}
+{% endblock %}
+
+{% block content %}
+  <div class="row col-4 main-text">Registration</div>
+
+
+  <form action="/signup/" novalidate method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <button type="submit" class="btn btn-primary">Signup</button>
+  </form>
+
+{% endblock content %}
